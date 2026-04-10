@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="section-title">👥 Біздің команда</h1>
+  <p class="team-subtitle">Біз - киберқауіпсіздік саласындағы жас мамандар тобы</p>
+  
+  <div class="team-grid">
+    <div class="team-card" *ngFor="let member of team">
+      <!-- Сурет контейнері -->
+      <div class="member-photo">
+        <img [src]="member.photoUrl" [alt]="member.name" class="photo-image">
+        <div class="member-icon">{{ member.icon }}</div>
+      </div>
+      
+      <h3>{{ member.name }}</h3>
+      <p class="member-role">{{ member.role }}</p>
+      
+      <div class="social-links">
+        <a [href]="member.linkedin" class="social-link" target="_blank">
+          <span>🔗</span>
+        </a>
+        <a [href]="member.github" class="social-link" target="_blank">
+          <span>💻</span>
+        </a>
+        <a [href]="'mailto:' + member.email" class="social-link">
+          <span>📧</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Команда суреті - топтық фото -->
+  <div class="team-group-photo">
+    <h2>🤝 Біздің ұжым</h2>
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop" 
+         alt="Команда" 
+         class="group-image">
+    <p>6 жас маман бірігіп, Қазақстанның киберқауіпсіздігін күшейту үшін жұмыс істейді</p>
+  </div>
+</div>

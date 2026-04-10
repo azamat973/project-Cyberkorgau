@@ -1,0 +1,175 @@
+/* Команда бетінің стильдері */
+.team-subtitle {
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.team-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 255, 204, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+  transition: left 0.5s;
+}
+
+.team-card:hover::before {
+  left: 100%;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 255, 204, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
+}
+
+/* Сурет контейнері */
+.member-photo {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+}
+
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.team-card:hover .photo-image {
+  transform: scale(1.05);
+}
+
+.member-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #00ffcc;
+  color: #000;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 2px solid #1a1a1a;
+}
+
+/* Мәліметтер */
+.team-card h3 {
+  font-size: 1.4rem;
+  margin: 1rem 0 0.3rem;
+  color: #fff;
+}
+
+.member-role {
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.member-bio {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Әлеуметтік сілтемелер */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: #2a2a2a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  background: #00ffcc;
+  transform: translateY(-3px);
+}
+
+/* Топтық фото */
+.team-group-photo {
+  background: linear-gradient(135deg, #0a2a2a, #0a1a1a);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.team-group-photo h2 {
+  margin-bottom: 1.5rem;
+  color: #00ffcc;
+}
+
+.group-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.team-group-photo p {
+  color: #b0b0b0;
+  font-size: 1rem;
+}
+
+/* Мобильді нұсқа */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .member-photo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .team-card {
+    padding: 1.5rem;
+  }
+}

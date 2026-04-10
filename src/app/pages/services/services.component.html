@@ -1,0 +1,195 @@
+<div class="container">
+  <h1 class="section-title">🛡️ Біздің қызметтер</h1>
+  <p class="section-subtitle">Киберқауіпсіздік саласындағы толық шешімдер</p>
+  
+  <!-- Қызметтер торы -->
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let service of services" (click)="showServiceDetails(service)">
+      <div class="service-icon" [style.background]="service.color + '20'">
+        <span>{{ service.icon }}</span>
+      </div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+      <div class="service-features">
+        <span class="feature-tag" *ngFor="let feature of service.features.slice(0,2)">{{ feature }}</span>
+      </div>
+      <button class="service-btn">Толығырақ →</button>
+    </div>
+  </div>
+  
+  <!-- Интерактивті құралдар -->
+  <h2 class="section-title">⚡ Интерактивті құралдар</h2>
+  
+  <div class="tools-container">
+    <!-- Құрал 1: Сайт тексеру -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🔍</span>
+        <h3>Vulnerability Scanner</h3>
+      </div>
+      <div class="tool-body">
+        <input type="text" [(ngModel)]="siteUrl" placeholder="https://example.com" class="tool-input">
+        <button class="btn-primary" (click)="checkSite()" [disabled]="isScanning">
+          {{ isScanning ? 'Сканерлеу...' : 'Тексеру' }}
+        </button>
+        
+        <div *ngIf="scanResult" class="scan-result">
+          <div class="result-header" [class.safe]="scanResult.safe" [class.risk]="!scanResult.safe">
+            <span class="result-icon">{{ scanResult.safe ? '✅' : '⚠️' }}</span>
+            <span class="result-message">{{ scanResult.message }}</span>
+          </div>
+          <div class="result-score">
+            <div class="score-bar">
+              <div class="score-fill" [style.width.%]="scanResult.score"></div>
+            </div>
+            <span>Қауіпсіздік деңгейі: {{ scanResult.score }}%</span>
+          </div>
+          <div *ngIf="scanResult.issues && scanResult.issues.length > 0" class="result-issues">
+            <h4>Анықталған мәселелер:</h4>
+            <ul>
+              <li *ngFor="let issue of scanResult.issues">⚠️ {{ issue }}</li>
+            </ul>
+          </div>
+          <div class="result-recommendations">
+            <h4>💡 Ұсыныстар:</h4>
+            <ul>
+              <li *ngFor="let rec of scanResult.recommendations">✅ {{ rec }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Құрал 2: Пароль беріктігін тексеру -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🔐</span>
+        <h3>Password Strength Checker</h3>
+      </div>
+      <div class="tool-body">
+        <input type="text" [(ngModel)]="passwordToCheck" (input)="checkPasswordStrength()" 
+               placeholder="Құпия сөзіңізді енгізіңіз" class="tool-input">
+        
+        <div class="password-strength">
+          <div class="strength-bar">
+            <div class="strength-fill" [style.width.%]="(passwordStrengthScore / 5) * 100"
+                 [class.weak]="passwordStrengthScore <= 2"
+                 [class.medium]="passwordStrengthScore > 2 && passwordStrengthScore <= 4"
+                 [class.strong]="passwordStrengthScore > 4"></div>
+          </div>
+          <div class="strength-text">{{ passwordStrength }}</div>
+        </div>
+        
+        <button class="btn-secondary" (click)="generatePassword()">🎲 Қауіпсіз пароль генерациялау</button>
+        
+        <div *ngIf="generatedPassword" class="generated-password">
+          <p>Жаңа пароль: <strong>{{ generatedPassword }}</strong></p>
+        </div>
+        
+        <div *ngIf="securityTips.length > 0" class="security-tips">
+          <h4>💡 Кеңестер:</h4>
+          <ul>
+            <li *ngFor="let tip of securityTips">✅ {{ tip }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Құрал 3: Қауіп калькуляторы -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">💰</span>
+        <h3>Risk Calculator</h3>
+      </div>
+      <div class="tool-body">
+        <div class="input-group">
+          <label>Жылдық табыс (млн теңге)</label>
+          <input type="number" [(ngModel)]="revenue" placeholder="Мысалы: 50" class="tool-input">
+        </div>
+        <div class="input-group">
+          <label>Қызметкерлер саны</label>
+          <input type="number" [(ngModel)]="employees" placeholder="Мысалы: 10" class="tool-input">
+        </div>
+        <button class="btn-primary" (click)="calculateRisk()">Есептеу</button>
+        
+        <div *ngIf="riskResult" class="risk-result">
+          <div class="risk-value">{{ riskResult }} млн ₸</div>
+          <div class="risk-level" [class.low]="riskLevel === 'Төмен 🟢'"
+               [class.medium]="riskLevel === 'Орташа 🟡'"
+               [class.high]="riskLevel === 'Жоғары 🔴'">
+            Қауіп деңгейі: {{ riskLevel }}
+          </div>
+          <p class="risk-note">* Бұл шабуылдан кейінгі ықтимал шығын (деректер жоғалту, жабдықтар, жұмыс уақыты)</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Құрал 4: Email Breach Checker -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">📧</span>
+        <h3>Email Breach Checker</h3>
+      </div>
+      <div class="tool-body">
+        <input type="email" [(ngModel)]="emailToCheck" placeholder="email@example.com" class="tool-input">
+        <button class="btn-primary" (click)="checkEmailBreach()">Тексеру</button>
+        
+        <div *ngIf="emailBreachResult" class="breach-result" [class.breached]="emailBreachResult.breached">
+          <span class="breach-icon">{{ emailBreachResult.breached ? '⚠️' : '✅' }}</span>
+          <span>{{ emailBreachResult.message }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Құрал 5: Фишинг симуляторы -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🎣</span>
+        <h3>Phishing Simulator</h3>
+      </div>
+      <div class="tool-body">
+        <p class="tool-description">Фишинг шабуылдарын тану қабілетіңізді тексеріңіз</p>
+        <button class="btn-primary" (click)="startPhishingTest()">Тест бастау</button>
+        <div [innerHTML]="phishingResult" class="phishing-container"></div>
+      </div>
+    </div>
+    
+    <!-- Құрал 6: Файл сканері -->
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">📁</span>
+        <h3>File Scanner</h3>
+      </div>
+      <div class="tool-body">
+        <input type="file" (change)="onFileSelected($event)" class="file-input">
+        <div *ngIf="vulnScanResult" class="file-result">
+          <div *ngIf="vulnScanResult.scanning" class="scanning">
+            🔄 Файл сканерленуде...
+          </div>
+          <div *ngIf="!vulnScanResult.scanning" [class.safe]="vulnScanResult.safe" [class.risk]="!vulnScanResult.safe">
+            {{ vulnScanResult.message }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Сервис деталдары модалы -->
+  <div class="service-modal" *ngIf="selectedService" (click)="closeServiceDetails()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeServiceDetails()">✖️</button>
+      <div class="modal-icon">{{ selectedService.icon }}</div>
+      <h2>{{ selectedService.title }}</h2>
+      <p class="modal-description">{{ selectedService.longDescription }}</p>
+      
+      <div class="modal-features">
+        <h3>Қызмет мүмкіндіктері:</h3>
+        <ul>
+          <li *ngFor="let feature of selectedService.features">✅ {{ feature }}</li>
+        </ul>
+      </div>
+      
+      <button class="btn-primary" (click)="closeServiceDetails()">Жабу</button>
+    </div>
+  </div>
+</div>

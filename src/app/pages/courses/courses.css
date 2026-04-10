@@ -1,0 +1,351 @@
+/* Секция асты тақырыбы */
+.section-subtitle {
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Статистика жолағы */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  background: linear-gradient(135deg, #1a2a2a, #0a1a1a);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.stat-label {
+  color: #b0b0b0;
+  margin-top: 0.5rem;
+}
+
+/* Курстар торы */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.course-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s;
+  border: 1px solid rgba(0, 255, 204, 0.1);
+  position: relative;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: #00ffcc;
+  box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
+}
+
+.course-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #00ffcc;
+  color: #000;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.course-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.course-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+.course-description {
+  color: #b0b0b0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.meta-item {
+  background: #2a2a2a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.course-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.topic {
+  background: rgba(0, 255, 204, 0.1);
+  color: #00ffcc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+
+/* Видеолар бөлімі */
+.videos-section {
+  margin: 4rem 0;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.video-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 204, 0.2);
+}
+
+.video-thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.video-card:hover .video-thumbnail img {
+  transform: scale(1.05);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.video-card:hover .play-button {
+  opacity: 1;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.video-info {
+  padding: 1rem;
+}
+
+.video-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+.video-info p {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-stats {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Видео модальды терезе */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 1.5rem;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.modal-content iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin: 1rem 0 0.5rem;
+  color: #00ffcc;
+}
+
+/* Симуляция бөлімі */
+.simulation-section {
+  background: linear-gradient(135deg, #0a2a2a, #0a1a1a);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 3rem 0;
+}
+
+.simulation-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.simulation-icon {
+  font-size: 5rem;
+}
+
+.simulation-text h2 {
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+.simulation-text ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.simulation-text li {
+  margin: 0.5rem 0;
+  color: #b0b0b0;
+}
+
+.simulation-result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 255, 204, 0.1);
+  border-radius: 10px;
+  color: #00ffcc;
+  text-align: center;
+}
+
+/* Жетістіктер */
+.achievements-section {
+  margin-top: 3rem;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.achievement-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-3px);
+  border: 1px solid #00ffcc;
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+}
+
+.achievement-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.achievement-info p {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+/* Мобильді нұсқа */
+@media (max-width: 768px) {
+  .simulation-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .modal-content {
+    width: 95%;
+  }
+  
+  .modal-content iframe {
+    height: 250px;
+  }
+}

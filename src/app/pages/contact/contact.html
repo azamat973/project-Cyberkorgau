@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="section-title">Байланыс және қолдау</h1>
+  <div class="contact-grid">
+    <div class="contact-form">
+      <form (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Аты-жөніңіз" required>
+        </div>
+        <div class="form-group">
+          <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Email мекенжайыңыз" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="formData.subject" name="subject" placeholder="Тақырыбы">
+        </div>
+        <div class="form-group">
+          <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Хабарламаңыз" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Жіберу</button>
+      </form>
+      <div *ngIf="submitted" class="success-message">
+        ✅ Хабарламаңыз сәтті жіберілді! Біз сізге жақын арада жауап береміз.
+      </div>
+    </div>
+    <div class="contact-info">
+      <h3>Бізге хабарласыңыз</h3>
+      <p>📍 Мекенжайы: Алматы, Қазақстан</p>
+      <p>📞 Телефон: +7 (700) 000-0000</p>
+      <p>✉️ Email: info@cyberkorgau.kz</p>
+      <p>🌐 Telegram: @cyberkorgau_bot</p>
+      <div class="emergency">
+        <h4>🚨 Төтенше жағдайлар</h4>
+        <p>Кибершабуылға ұшырадыңыз ба? Бізге дереу хабарласыңыз!</p>
+        <button class="btn-primary" (click)="callEmergency()">112 байланыс</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- Навигация -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-icon">🛡️</div>
+      <span>Кибер<span class="logo-highlight">Қорғау</span></span>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active">Басты бет</a>
+      <a routerLink="/problem" routerLinkActive="active">Проблема</a>
+      <a routerLink="/solution" routerLinkActive="active">Шешім</a>
+      <a routerLink="/services" routerLinkActive="active">Қызметтер</a>
+      <a routerLink="/courses" routerLinkActive="active">Оқыту</a>
+      <a routerLink="/team" routerLinkActive="active">Команда</a>
+      <a routerLink="/contact" routerLinkActive="active">Байланыс</a>
+    </div>
+    <div class="mobile-menu-btn" (click)="toggleMenu()">☰</div>
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>КиберҚорғау</h3>
+      <p>Қазақстанның цифрлық қауіпсіздігі үшін</p>
+    </div>
+    <div class="footer-section">
+      <h4>Байланыс</h4>
+      <p>Email: info@cyberkorgau.kz</p>
+      <p>Телефон: +7 (700) 000-0000</p>
+    </div>
+    <div class="footer-section">
+      <h4>Әлеуметтік желілер</h4>
+      <div class="social-links">
+        <a href="#">Instagram</a> | <a href="#">Telegram</a> | <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 КиберҚорғау. Барлық құқықтар қорғалған.</p>
+  </div>
+</footer>

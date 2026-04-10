@@ -1,0 +1,400 @@
+/* Қызметтер бетінің стильдері */
+.section-subtitle {
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Қызметтер торы */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.service-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: #00ffcc;
+  box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+.service-card p {
+  color: #b0b0b0;
+  margin-bottom: 1rem;
+}
+
+.service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.feature-tag {
+  background: rgba(0, 255, 204, 0.1);
+  color: #00ffcc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+
+.service-btn {
+  background: none;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.service-btn:hover {
+  background: #00ffcc;
+  color: #000;
+}
+
+/* Интерактивті құралдар */
+.tools-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.tool-header {
+  background: linear-gradient(135deg, #0a2a2a, #0a1a1a);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tool-icon {
+  font-size: 2rem;
+}
+
+.tool-header h3 {
+  font-size: 1.2rem;
+  color: #00ffcc;
+}
+
+.tool-body {
+  padding: 1.5rem;
+}
+
+.tool-input {
+  width: 100%;
+  padding: 0.8rem;
+  background: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #b0b0b0;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00ffcc, #00cc88);
+  color: #000;
+}
+
+.btn-secondary {
+  background: #2a2a2a;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  transform: scale(1.02);
+}
+
+/* Сканер нәтижесі */
+.scan-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.result-header.safe {
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+}
+
+.result-header.risk {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4444;
+}
+
+.score-bar {
+  background: #333;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.score-fill {
+  background: linear-gradient(90deg, #00ffcc, #00cc88);
+  height: 100%;
+  transition: width 0.5s;
+}
+
+/* Пароль беріктігі */
+.password-strength {
+  margin: 1rem 0;
+}
+
+.strength-bar {
+  background: #333;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.strength-fill.weak { background: #ff4444; }
+.strength-fill.medium { background: #ffaa44; }
+.strength-fill.strong { background: #00ff44; }
+
+.strength-text {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.generated-password {
+  background: #0a2a2a;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.security-tips {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 255, 204, 0.05);
+  border-radius: 8px;
+}
+
+.security-tips ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+/* Қауіп калькуляторы */
+.risk-result {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.risk-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffaa44;
+}
+
+.risk-level {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.risk-level.low { color: #00ff00; }
+.risk-level.medium { color: #ffaa44; }
+.risk-level.high { color: #ff4444; }
+
+.risk-note {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+/* Email нәтижесі */
+.breach-result {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breach-result.breached {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff8888;
+}
+
+/* Фишинг контейнері */
+.phishing-container {
+  margin-top: 1rem;
+}
+
+.phishing-question {
+  background: #2a2a2a;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.phishing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.phishing-option {
+  background: #333;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.phishing-option:hover {
+  background: #00ffcc;
+  color: #000;
+}
+
+/* Модальды терезе */
+.service-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  color: #b0b0b0;
+  margin: 1rem 0;
+}
+
+.modal-features {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.modal-features ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.modal-features li {
+  margin: 0.5rem 0;
+  color: #b0b0b0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Мобильді нұсқа */
+@media (max-width: 768px) {
+  .tools-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tool-header h3 {
+    font-size: 1rem;
+  }
+}

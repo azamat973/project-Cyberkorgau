@@ -1,0 +1,115 @@
+<div class="container">
+  <h1 class="section-title">⚠️ Киберқауіпсіздік дағдарысы</h1>
+  <div class="logo">
+  <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" 
+       alt="Қалқан" 
+       style="width: 35px; height: 35px; margin-right: 10px;">
+  <span>Кибер<span class="logo-highlight">Қорғау</span></span>
+</div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=400&fit=crop" 
+         alt="Киберқауіпсіздік" 
+         class="main-image">
+  </div>
+  <!-- Негізгі статистика -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">{{ stat1 }} трлн $</div>
+      <div class="stat-label">Жылдық жаһандық шығын</div>
+      <div class="stat-source">(Cybersecurity Ventures, 2026)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">{{ stat2 }}%</div>
+      <div class="stat-label">Шағын бизнес 6 ай ішінде жабылады</div>
+      <div class="stat-source">(National Cyber Security Alliance)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">{{ stat4 | number }}</div>
+      <div class="stat-label">Angular уязвим сайттар (2026)</div>
+      <div class="stat-source">(WebTechSurvey, CVE-2026-22610)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">{{ kzStats.companiesWithoutSecurity }}%</div>
+      <div class="stat-label">Қазақстандағы қорғалмаған компаниялар</div>
+      <div class="stat-source">(Цифрлық даму министрлігі)</div>
+    </div>
+  </div>
+  
+  <!-- Қазақстан бойынша арнайы блок -->
+  <div class="kazakhstan-block">
+    <h2>🇰🇿 Қазақстандағы жағдай</h2>
+    <div class="kz-stats">
+      <div class="kz-stat-item">
+        <span class="kz-stat-value">{{ kzStats.smePercentage }}%</span>
+        <span class="kz-stat-label">Шағын және орта бизнес үлесі</span>
+      </div>
+      <div class="kz-stat-item">
+        <span class="kz-stat-value">{{ kzStats.cyberAttacks2025 | number }}</span>
+        <span class="kz-stat-label">2025 ж. кибершабуылдар саны</span>
+      </div>
+      <div class="kz-stat-item">
+        <span class="kz-stat-value">{{ kzStats.avgLossPerAttack }} млн ₸</span>
+        <span class="kz-stat-label">Бір шабуылдан орташа шығын</span>
+      </div>
+    </div>
+    <p class="warning-text">⚠️ Ескерту: Қазақстанда шағын бизнестің тек 33% ғана негізгі киберқауіпсіздік шараларын қолданады!</p>
+  </div>
+  
+  <!-- Негізгі проблемалар карточкасы -->
+  <div class="problem-card">
+    <h2>📌 Негізгі проблемалар</h2>
+    <p>Қазіргі цифрлық әлемде бір шерту арқылы миллиондаған теңге ұрланады. Шағын бизнес иелерінің 60%-ы кибершабуылдан кейін қайта қалпына келмейді. Бұл — жұмыссыздық, отбасылық қиындықтар және ұлттық экономикаға зиян.</p>
+    <p>Қазақстанда шағын және орта кәсіпорындар экономиканың 90%-ын құрайды. Бір шабуыл бизнес жабылуына, жұмыссыздыққа және жеке деректердің ұрлануына әкеледі.</p>
+  </div>
+  
+  <!-- Қауіп түрлері -->
+  <h2 class="section-subtitle">🔐 Ең көп таралған кибершабуылдар</h2>
+  <div class="threats-grid">
+    <div class="threat-card" *ngFor="let threat of threatTypes">
+      <div class="threat-icon">{{ threat.icon }}</div>
+      <div class="threat-info">
+        <h3>{{ threat.name }}</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="threat.percentage"></div>
+        </div>
+        <span class="threat-percentage">{{ threat.percentage }}%</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CVE уязвимостьтер кестесі -->
+  <h2 class="section-subtitle">🛡️ 2025-2026 Angular уязвимостьтері</h2>
+  <div class="cve-table-container">
+    <table class="cve-table">
+      <thead>
+        <tr>
+          <th>CVE ID</th>
+          <th>Атауы</th>
+          <th>Severity</th>
+          <th>CVSS Score</th>
+          <th>Күні</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cve of cveList">
+          <td class="cve-id">{{ cve.id }}</td>
+          <td>{{ cve.title }}</td>
+          <td [class]="getSeverityClass(cve.severity)">{{ cve.severity }}</td>
+          <td class="cvss-score">{{ cve.score }}</td>
+          <td>{{ cve.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="cve-note">* 2026 жылдың алғашқы 3 айында 4 жаңа уязвимость анықталды. 137,957 сайттың 24,567-і (18%) осал күйінде [citation:4][citation:8].</p>
+  </div>
+  
+  <!-- Қорытынды блок -->
+  <div class="conclusion-block">
+    <div class="conclusion-icon">💡</div>
+    <div class="conclusion-text">
+      <h3>Не істеу керек?</h3>
+      <p>Кибершабуылдардың 93% адам факторынан болады. Білім беру және дұрыс құралдарды қолдану шабуылдардың 70% дейін азайта алады.</p>
+      <button class="btn-primary" routerLink="/courses">🎓 Оқыту курстарын бастау</button>
+    </div>
+  </div>
+</div>
